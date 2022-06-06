@@ -12,7 +12,7 @@ dotenv.config({path: './config.env'})
 app.use(express.json())
 app.use(urlencoded({extended: true}))
 app.use(cors({
-    origin: "http://localhost:3000",
+    origin: "https://zsncart.herokuapp.com",
     methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH'],
     credentials: true
 }))
@@ -22,7 +22,6 @@ app.use(cookieParser())
 
 const PORT = process.env.PORT
 const DB = process.env.DB
-const SECRET = process.env.SECRET
 
 // Database Connection
 
