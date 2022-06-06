@@ -20,7 +20,7 @@ app.use(cookieParser())
 
 // Config File
 
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 3500
 const DB = process.env.DB
 
 // Database Connection
