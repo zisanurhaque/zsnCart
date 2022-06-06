@@ -1,6 +1,5 @@
 const express = require('express')
 const app = express()
-const cookieParser = require('cookie-parser')
 const dotenv = require('dotenv')
 const mongoose = require('mongoose')
 const { urlencoded } = require('express')
@@ -16,11 +15,10 @@ app.use(cors({
     methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH'],
     credentials: true
 }))
-app.use(cookieParser())
 
 // Config File
 
-const PORT = process.env.PORT || 3500
+const PORT = process.env.PORT || 8080
 const DB = process.env.DB
 
 // Database Connection
