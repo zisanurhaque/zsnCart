@@ -8,23 +8,23 @@ const App = () => {
   const [cartItem, setCartItem] = useState([])
   const [toggle, setToggle] = useState(true)
 
-  const handleCart = (id) => {
+  const handleCart = async(id) => {
     const value = {
       id: id
     }
-    axios.post('https://zsncart.herokuapp.com/addtocart', value)
+    await axios.post('https://zsncart.herokuapp.com/addtocart', value)
   }
 
   const handleDelete = (id) => {
     axios.delete(`https://zsncart.herokuapp.com/deleteItem/${id}`)
   }
 
-  const handleQty = (value) => {
+  const handleQty = async(value) => {
     if(value.type === "inc"){
-      axios.put("https://zsncart.herokuapp.com/increment", value)
+      await axios.put("https://zsncart.herokuapp.com/increment", value)
     }
     else if(value.type === "dec"){
-      axios.put("https://zsncart.herokuapp.com/decrement", value)
+      await axios.put("https://zsncart.herokuapp.com/decrement", value)
     }
   }
 
@@ -36,11 +36,11 @@ const App = () => {
   useEffect(() => {
 
     fetch("https://zsncart.herokuapp.com/getProducts", {
-      method: "GET"
+      method: "get"
     }).then((response) => response.json()).then(response => setProducts(response))
 
     fetch("https://zsncart.herokuapp.com/getCartItems", {
-      method: "GET"
+      method: "get"
     }).then((response) => response.json()).then(response => setCartItem(response))
 
   }, [cartItem])

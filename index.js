@@ -12,7 +12,7 @@ dotenv.config({path: './config.env'})
 app.use(express.json())
 app.use(urlencoded({extended: true}))
 app.use(cors({
-    origin: "https://zsncart.herokuapp.com",
+    origin: "https://zsncart.herokuapp.com/",
     methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH'],
     credentials: true
 }))
